@@ -47,7 +47,7 @@
     "ember-cli-htmlbars": "^3.0.1",
     "ember-cli-qunit": "^4.4.0",
     "ember-cli-uglfiy": "./",
-    "ember-load-initializers": "^1.0.0",
+    "ember-load-initializers": "^2.0.0",
     "ember-resolver": "^5.0.1",
     "ember-source": "^3.5.0",
     "ember-try": "^0.2.23",
