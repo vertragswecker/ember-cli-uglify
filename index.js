@@ -3,12 +3,12 @@
 module.exports = {
   name: 'ember-cli-uglify',
 
-  included(app) {
+  included: function(app) {
     this._super.included.apply(this, arguments);
 
-    const defaults = require('lodash.defaultsdeep');
+    var defaults = require('lodash.defaultsdeep');
 
-    let defaultOptions = {
+    var defaultOptions = {
       enabled: app.env === 'production',
       async: true, // run uglify in parallel
 
@@ -36,12 +36,12 @@ module.exports = {
     this._options = defaults(app.options['ember-cli-uglify'] || {}, defaultOptions);
   },
 
-  _sourceMapsEnabled(options) {
+  _sourceMapsEnabled: function(options) {
     if (options.enabled === false) {
       return false;
     }
 
-    let extensions = options.extensions || [];
+    var extensions = options.extensions || [];
     if (extensions.indexOf('js') === -1) {
       return false;
     }
@@ -49,7 +49,7 @@ module.exports = {
     return true;
   },
 
-  postprocessTree(type, tree) {
+  postprocessTree: function(type, tree) {
     if (this._options.enabled === true && type === 'all') {
       return require('broccoli-uglify-sourcemap')(tree, this._options);
     } else {
